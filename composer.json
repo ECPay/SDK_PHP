@@ -1,0 +1,17 @@
+{
+    "name": "ecpay/sdk",
+    "description": "ECPay SDK",
+    "type": "library",
+    "require": {
+        "php": ">=5.3"
+    },
+    "license": "MIT",
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ecpay\\Sdk\\": "src/"
+        }
+    }
+}
