@@ -24,14 +24,17 @@ class SingleServiceTestCase extends TestCase
     protected $service;
 
     /**
-     * Sets up the fixture, for example, open a network connection.
-     * This method is called before a test is executed.
+     * 取得 Factory 選項
+     *
+     * @return array
      */
-    protected function setUp()
+    protected function getFactoryOptions()
     {
-        parent::setUp();
-        $this->factory = new Factory;
-        $this->service = $this->getService();
+        return [
+            'hashIv' => $this->stageOtpHashIv,
+            'hashKey' => $this->stageOtpHashKey,
+            'hashMethod' => '',
+        ];
     }
 
     /**
@@ -42,5 +45,16 @@ class SingleServiceTestCase extends TestCase
     protected function getService()
     {
         return null;
+    }
+
+    /**
+     * Sets up the fixture, for example, open a network connection.
+     * This method is called before a test is executed.
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+        $this->factory = new Factory($this->getFactoryOptions());
+        $this->service = $this->getService();
     }
 }

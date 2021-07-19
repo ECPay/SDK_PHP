@@ -11,10 +11,24 @@ class CheckMacValueService
 {
     use HashInfo;
 
-    public function __construct($key, $iv)
+    /**
+     * Hash 方式列舉
+     */
+    const METHOD_MD5 = 'md5';
+    const METHOD_SHA256 = 'sha256';
+
+    /**
+     * Hash 方式
+     *
+     * @var string
+     */
+    private $method;
+
+    public function __construct($key, $iv, $method)
     {
         $this->setHashKey($key);
         $this->setHashIv($iv);
+        $this->setMethod($method);
     }
 
     /**
@@ -81,7 +95,13 @@ class CheckMacValueService
      */
     public function generateHash($source)
     {
-        return hash('sha256', $source);
+        $hash = '';
+        if ($this->method === self::METHOD_SHA256) {
+            $hash = hash('sha256', $source);
+        } else {
+            $hash = md5($source);
+        }
+        return $hash;
     }
 
     /**
@@ -92,6 +112,17 @@ class CheckMacValueService
     public function getFieldName()
     {
         return 'CheckMacValue';
+    }
+
+    /**
+     * 設定雜湊方式
+     *
+     * @param string $method
+     * @return void
+     */
+    public function setMethod($method)
+    {
+        $this->method = $method;
     }
     
     /**

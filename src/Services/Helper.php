@@ -33,13 +33,28 @@ class Helper
     }
 
     /**
+     * 判斷是否為 Json 格式
+     *
+     * @param  string $string
+     * @return boolean
+     */
+    public static function isJson($string)
+    {
+        $isString = is_string($string);
+        $isArray = is_array(json_decode($string, true));
+        $isJsonError = (json_last_error() == JSON_ERROR_NONE);
+
+        return $isString && $isArray && $isJsonError;
+    }
+
+    /**
      * 以可讀方式印出
      *
      * @param  mixed  $content
      * @param  string $desc
      * @return void
      */
-    public static function printR($content, $desc = '')
+    public static function printReadable($content, $desc = '')
     {
         if (!empty($desc)) {
             echo $desc . PHP_EOL;

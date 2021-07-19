@@ -8,11 +8,12 @@ use Ecpay\Sdk\Response\AesJsonResponse;
 require __DIR__ . '/../../../vendor/autoload.php';
 
 try {
-    $factory = new Factory;
-    $hashKey = '5294y06JbISpM5x9';
-    $hashIv = 'v77hoKGq4kWxNNIS';
-    $jsonRequest = $factory->createWithHash(AesJsonResponse::class, $hashKey, $hashIv);
-    $aesJsonResponse = $factory->createWithHash(AesRequest::class, $hashKey, $hashIv);
+    $factory = new Factory([
+        'hashKey' => '5294y06JbISpM5x9',
+        'hashIv' => 'v77hoKGq4kWxNNIS',
+    ]);
+    $jsonRequest = $factory->create(AesJsonResponse::class);
+    $aesJsonResponse = $factory->create(AesRequest::class);
 
     $json = file_get_contents('php://input');
     

@@ -4,6 +4,7 @@ namespace Ecpay\Sdk\TestCase;
 use Ecpay\Sdk\Traits\StageInfo;
 use PHPUnit\Framework\TestCase;
 use Ecpay\Sdk\Factories\Factory;
+use Ecpay\Sdk\Services\CheckMacValueService;
 
 class MultipleServiceTestCase extends TestCase
 {
@@ -23,7 +24,7 @@ class MultipleServiceTestCase extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->factory = new Factory;
+        $this->setFactory($this->getSha256CmvFactory());
     }
 
     /**
@@ -34,10 +35,45 @@ class MultipleServiceTestCase extends TestCase
      */
     protected function create($class)
     {
-        return $this->factory->createWithHash(
-            $class,
-            $this->stageOtpHashKey,
-            $this->stageOtpHashIv
-        );
+        return $this->factory->create($class);
+    }
+
+    /**
+     * 取得 MD5 壓碼工廠
+     *
+     * @return Factory
+     */
+    protected function getMd5CmvFactory()
+    {
+        return new Factory([
+            'hashIv' => $this->stageOtpHashIv,
+            'hashKey' => $this->stageOtpHashKey,
+            'hashMethod' => CheckMacValueService::METHOD_MD5,
+        ]);
+    }
+
+    /**
+     * 取得 SHA256 壓碼工廠
+     *
+     * @return Factory
+     */
+    protected function getSha256CmvFactory()
+    {
+        return new Factory([
+            'hashIv' => $this->stageOtpHashIv,
+            'hashKey' => $this->stageOtpHashKey,
+            'hashMethod' => CheckMacValueService::METHOD_SHA256,
+        ]);
+    }
+
+    /**
+     * 設定工廠
+     *
+     * @param  Factory $factory
+     * @return void
+     */
+    protected function setFactory(Factory $factory)
+    {
+        $this->factory = $factory;
     }
 }

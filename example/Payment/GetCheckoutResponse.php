@@ -7,10 +7,11 @@ use Ecpay\Sdk\Response\VerifiedArrayResponse;
 require __DIR__ . '/../../vendor/autoload.php';
 
 try {
-    $factory = new Factory;
-    $hashKey = '5294y06JbISpM5x9';
-    $hashIv = 'v77hoKGq4kWxNNIS';
-    $checkoutResponse = $factory->createWithHash(VerifiedArrayResponse::class, $hashKey, $hashIv);
+    $factory = new Factory([
+        'hashKey' => '5294y06JbISpM5x9',
+        'hashIv' => 'v77hoKGq4kWxNNIS',
+    ]);
+    $checkoutResponse = $factory->create(VerifiedArrayResponse::class);
 
     $_POST = [
         'MerchantID' => '2000132',

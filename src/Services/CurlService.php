@@ -7,6 +7,24 @@ use Ecpay\Sdk\Interfaces\Services\HttpClientInterface;
 class CurlService implements HttpClientInterface
 {
     /**
+     * Headers
+     *
+     * @var array
+     */
+    protected $headers = [];
+
+    /**
+     * 設定 Header
+     *
+     * @param  array $headers
+     * @return void
+     */
+    public function setHeaders($headers)
+    {
+        $this->headers = $headers;
+    }
+
+    /**
      * 執行
      *
      * @param  mixed  $request
@@ -22,7 +40,7 @@ class CurlService implements HttpClientInterface
             throw new RtnException(107);
         }
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_POST, true);
