@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Abstracts;
 
 use Ecpay\Sdk\Services\ArrayService;
@@ -40,7 +41,6 @@ abstract class AbstractVerifiedResponse implements ResponseInterface
             throw new RtnException(106);
         }
         $sorted = ArrayService::naturalSort($parsed);
-
         return $sorted;
     }
 

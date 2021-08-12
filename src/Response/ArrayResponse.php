@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Response;
 
 use Ecpay\Sdk\Abstracts\AbstractResponse;

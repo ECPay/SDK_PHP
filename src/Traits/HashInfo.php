@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Traits;
 
 trait HashInfo
@@ -26,7 +27,7 @@ trait HashInfo
     {
         return $this->hashIv;
     }
-    
+
     /**
      * 取得 Hash Key
      *

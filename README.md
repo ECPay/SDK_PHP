@@ -3,6 +3,7 @@
 * [全方位金流](https://www.ecpay.com.tw/Business/payment_standard)
 * [物流服務-國內物流](https://www.ecpay.com.tw/IntroTransport)
 * [物流服務-跨境物流](https://www.ecpay.com.tw/IntroTransportCB)
+* [電子發票](https://www.ecpay.com.tw/Business/invoice)
 
 
 # 目錄
@@ -24,3 +25,4 @@ composer require ecpay/sdk
 
 # 協助
 - [綠界技術服務工程師信箱](mailto:techsupport@ecpay.com.tw)
+- [舊版](https://github.com/ECPay/ECPayAIO_PHP) (停止維護)

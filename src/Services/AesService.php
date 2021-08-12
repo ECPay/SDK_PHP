@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Services;
 
 use Exception;
@@ -28,7 +29,7 @@ class AesService
         $this->setHashKey($key);
         $this->setHashIv($iv);
     }
-    
+
     /**
      * AES 解密
      *
@@ -40,19 +41,22 @@ class AesService
     public function decrypt($source)
     {
         $jsonDecoded = [];
-        try {
-            $base64Decoded = base64_decode($source);
-            $decrypted = openssl_decrypt(
-                $base64Decoded,
-                $this->method,
-                $this->getHashKey(),
-                $this->options,
-                $this->getHashIv()
-            );
-            $urlDecoded = urldecode($decrypted);
-            $jsonDecoded = json_decode($urlDecoded, true);
-        } catch (Exception $e) {
+        $base64Decoded = base64_decode($source);
+        $decrypted = openssl_decrypt(
+            $base64Decoded,
+            $this->method,
+            $this->getHashKey(),
+            $this->options,
+            $this->getHashIv()
+        );
+        if ($decrypted === false) {
             throw new RtnException(109);
+        }
+
+        $urlDecoded = urldecode($decrypted);
+        $jsonDecoded = json_decode($urlDecoded, true);
+        if (is_null($jsonDecoded)) {
+            throw new RtnException(111);
         }
 
         return $jsonDecoded;

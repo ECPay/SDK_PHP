@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Request;
 
 use Ecpay\Sdk\Services\ArrayService;
@@ -17,7 +18,6 @@ class Request implements RequestInterface
     public function get($source)
     {
         $sorted = ArrayService::naturalSort($source);
-
         return $sorted;
     }
 
@@ -30,7 +30,6 @@ class Request implements RequestInterface
     public function toArray($source)
     {
         $request = $this->get($source);
-
         return $request;
     }
 }

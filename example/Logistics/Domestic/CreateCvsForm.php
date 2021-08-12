@@ -26,15 +26,15 @@ try {
         'ReceiverName' => '王小美',
         'ReceiverCellPhone' => '0933222111',
 
-        // 請參考 GetLogisticStatueResponse.php 範例開發
+        // 請參考 example/Logistics/Domestic/GetLogisticStatueResponse.php 範例開發
         'ServerReplyURL' => 'https://www.ecpay.com.tw/example/server-reply',
         'ClientReplyURL' => 'https://www.ecpay.com.tw/example/client-reply',
 
-        // 請參考 Map.php 範例取得
+        // 請參考 example/Logistics/Domestic/GetMapResponse.php 範例取得
         'ReceiverStoreID' => '006598'
     ];
     $action = 'https://logistics-stage.ecpay.com.tw/Express/Create';
-    
+
     echo $autoSubmitFormService->generate($input, $action);
 } catch (RtnException $e) {
     echo '(' . $e->getCode() . ')' . $e->getMessage() . PHP_EOL;

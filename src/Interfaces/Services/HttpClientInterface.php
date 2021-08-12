@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Interfaces\Services;
 
 interface HttpClientInterface

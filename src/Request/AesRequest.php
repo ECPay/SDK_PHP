@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Request;
 
 use Ecpay\Sdk\Services\AesService;
@@ -13,7 +14,6 @@ class AesRequest implements RequestInterface
      * @var AesService
      */
     protected $aesService;
-
     public function __construct(AesService $aesService)
     {
         $this->aesService = $aesService;
@@ -32,7 +32,6 @@ class AesRequest implements RequestInterface
         $encrypted = $this->aesService->encryptData($source);
         $sorted = ArrayService::naturalSort($encrypted);
         $encoded = json_encode($sorted);
-
         return $encoded;
     }
 
@@ -46,7 +45,6 @@ class AesRequest implements RequestInterface
     {
         $request = $this->get($source);
         $decoded = json_decode($request, true);
-
         return $decoded;
     }
 }

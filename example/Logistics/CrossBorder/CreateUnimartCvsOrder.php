@@ -33,6 +33,8 @@ try {
         'SenderAddress' => 'address 23424 -fr 13-2, Nangang Dist., Taipei City 115, Taiwan (R.O.C.)',
         'SenderEmail' => 'test-sender@ecpay.com.tw',
         'Remark' => 'Test Remark',
+
+        // 請參考 example/Logistics/CrossBorder/GetStatusChangedResponse.php 範例開發
         'ServerReplyURL' => 'https://logistics-stage.ecpay.com.tw/MockMerchant/NoticsTestRtn',
     ];
     $input = [

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Request;
 
 use Ecpay\Sdk\Services\ArrayService;
@@ -13,7 +14,6 @@ class CheckMacValueRequest implements RequestInterface
      * @var CheckMacValueService
      */
     protected $checkMacValueService;
-
     public function __construct(CheckMacValueService $checkMacValueService)
     {
         $this->checkMacValueService = $checkMacValueService;
@@ -31,7 +31,6 @@ class CheckMacValueRequest implements RequestInterface
     {
         $appened = $this->checkMacValueService->append($source);
         $sorted = ArrayService::naturalSort($appened);
-
         return $sorted;
     }
 
@@ -44,7 +43,6 @@ class CheckMacValueRequest implements RequestInterface
     public function toArray($source)
     {
         $request = $this->get($source);
-
         return $request;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Services;
 
 use Exception;
@@ -14,8 +15,8 @@ class CheckMacValueService
     /**
      * Hash 方式列舉
      */
-    const METHOD_MD5 = 'md5';
-    const METHOD_SHA256 = 'sha256';
+    public const METHOD_MD5 = 'md5';
+    public const METHOD_SHA256 = 'sha256';
 
     /**
      * Hash 方式
@@ -23,6 +24,7 @@ class CheckMacValueService
      * @var string
      */
     private $method;
+
 
     public function __construct($key, $iv, $method)
     {
@@ -124,7 +126,7 @@ class CheckMacValueService
     {
         $this->method = $method;
     }
-    
+
     /**
      * 排序
      *
@@ -149,7 +151,6 @@ class CheckMacValueService
             $combined .= '&' . $name . '=' . $value;
         }
         $combined .= '&HashIV=' . $this->getHashIv();
-
         return $combined;
     }
 
@@ -162,7 +163,6 @@ class CheckMacValueService
     public function verify($source)
     {
         $checkMacValue = $this->generate($source);
-
         return ($checkMacValue === $source[$this->getFieldName()]);
     }
 }

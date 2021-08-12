@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Services;
 
 use Ecpay\Sdk\Exceptions\RtnException;
@@ -35,8 +36,7 @@ class CurlService implements HttpClientInterface
      */
     public function run($request, $url)
     {
-        $ch = curl_init();
-        if ($ch === false) {
+        if (($ch = curl_init()) === false) {
             throw new RtnException(107);
         }
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -45,13 +45,10 @@ class CurlService implements HttpClientInterface
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
-
-        $rs = curl_exec($ch);
-        if ($rs === false) {
+        if (($rs = curl_exec($ch)) === false) {
             throw new RtnException(108);
         }
         curl_close($ch);
-
         return $rs;
     }
 }

@@ -35,11 +35,11 @@ try {
         'ScheduledPickupTime' => '4',
         'ScheduledDeliveryTime' => '4',
 
-        // 請參考 GetLogisticStatueResponse.php 範例開發
+        // 請參考 example/Logistics/Domestic/GetLogisticStatueResponse.php 範例開發
         'ServerReplyURL' => 'https://www.ecpay.com.tw/example/server-reply',
     ];
     $url = 'https://logistics-stage.ecpay.com.tw/Express/Create';
-    
+
     $response = $postService->post($input, $url);
     var_dump($response);
 } catch (RtnException $e) {

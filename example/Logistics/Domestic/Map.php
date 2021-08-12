@@ -20,11 +20,11 @@ try {
         'LogisticsSubType' => 'FAMI',
         'IsCollection' => 'N',
 
-        // 請參考 GetMapResponse.php 範例開發
+        // 請參考 example/Logistics/Domestic/GetMapResponse.php 範例開發
         'ServerReplyURL' => 'https://www.ecpay.com.tw/example/server-reply',
     ];
     $action = 'https://logistics-stage.ecpay.com.tw/Express/map';
-    
+
     echo $autoSubmitFormService->generate($input, $action);
 } catch (RtnException $e) {
     echo '(' . $e->getCode() . ')' . $e->getMessage() . PHP_EOL;

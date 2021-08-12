@@ -17,12 +17,12 @@ try {
         'MerchantID' => '2000132',
         'LogisticsSubType' => 'FAMI',
 
-        // 請參考 GetCreateTestDataResponse.php 範例開發
+        // 請參考 example/Logistics/Domestic/GetCreateTestDataResponse.php 範例開發
         'ClientReplyURL' => 'https://www.ecpay.com.tw/example/client-reply',
-        
+
     ];
     $action = 'https://logistics-stage.ecpay.com.tw/Express/CreateTestData';
-    
+
     echo $autoSubmitFormService->generate($input, $action);
 } catch (RtnException $e) {
     echo '(' . $e->getCode() . ')' . $e->getMessage() . PHP_EOL;

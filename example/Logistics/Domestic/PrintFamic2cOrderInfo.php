@@ -19,7 +19,7 @@ try {
         'CVSPaymentNo' => '11000062128',
     ];
     $action = 'https://logistics-stage.ecpay.com.tw/Express/PrintFAMIC2COrderInfo';
-    
+
     echo $autoSubmitFormService->generate($input, $action);
 } catch (RtnException $e) {
     echo '(' . $e->getCode() . ')' . $e->getMessage() . PHP_EOL;

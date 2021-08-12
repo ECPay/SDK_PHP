@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Factories;
 
 use ReflectionClass;
@@ -27,8 +28,7 @@ class Factory
         'hashIv' => '',
         'hashMethod' => CheckMacValueService::METHOD_SHA256,
     ];
-
-    public function __construct(Array $options = [])
+    public function __construct(array $options = [])
     {
         $this->options = array_merge($this->options, $options);
     }
@@ -44,7 +44,6 @@ class Factory
     public function create($class)
     {
         $instance = null;
-        
         switch (true) {
             case $this->isClassOrAlias($class, 'JsonCurlService'):
                 $instance = $this->create(CurlService::class);
@@ -52,9 +51,7 @@ class Factory
                 $instance->setHeaders($headers);
                 break;
 
-            /**
-             * CheckMacValue 應用
-             */
+            // CheckMacValue 應用
             case $this->isClassOrAlias($class, CheckMacValueService::class):
                 $instance = new $class(
                     $this->options['hashKey'],
@@ -67,7 +64,6 @@ class Factory
                 $checkMacValueService = $this->create(CheckMacValueService::class);
                 $instance = new $class($checkMacValueService);
                 break;
-
             case $this->isClassOrAlias($class, 'PostWithCmvVerifiedEncodedStrResponseService'):
                 $checkMacValueRequest = $this->create(CheckMacValueRequest::class);
                 $curlService = $this->create(CurlService::class);
@@ -91,28 +87,22 @@ class Factory
                 $curlService = $this->create(CurlService::class);
                 $response = $this->create(StrResponse::class);
                 $instance = new PostService($checkMacValueRequest, $curlService, $response);
+
                 break;
             case $this->isClassOrAlias($class, 'AutoSubmitFormWithCmvService'):
                 $checkMacValueRequest = $this->create(CheckMacValueRequest::class);
                 $htmlService = $this->create(HtmlService::class);
                 $instance = new AutoSubmitFormService($checkMacValueRequest, $htmlService);
                 break;
-
-            /**
-             * AES 應用
-             */
+            // AES 應用
             case $this->isClassOrAlias($class, AesService::class):
-                $instance = new $class(
-                    $this->options['hashKey'],
-                    $this->options['hashIv']
-                );
+                $instance = new $class($this->options['hashKey'], $this->options['hashIv']);
                 break;
             case $this->isClassOrAlias($class, AesRequest::class):
             case $this->isClassOrAlias($class, AbstractDecryptedResponse::class):
                 $aesService = $this->create(AesService::class);
                 $instance = new $class($aesService);
                 break;
-
             case $this->isClassOrAlias($class, 'PostWithAesJsonResponseService'):
                 $aesRequest = $this->create(AesRequest::class);
                 $jsonCurlService = $this->create('JsonCurlService');
@@ -124,9 +114,8 @@ class Factory
                 $htmlService = $this->create(HtmlService::class);
                 $instance = new AutoSubmitFormService($request, $htmlService);
                 break;
-
             default:
-                $instance = new $class;
+                $instance = new $class();
         }
 
         return $instance;
@@ -147,9 +136,8 @@ class Factory
     {
         $this->options['hashKey'] = $key;
         $this->options['hashIv'] = $iv;
-        $instance = $this->create($class);
 
-        return $instance;
+        return $this->create($class);
     }
 
     /**

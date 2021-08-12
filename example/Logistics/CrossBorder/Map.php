@@ -18,6 +18,8 @@ try {
         'LogisticsType' => 'CB',
         'LogisticsSubType' => 'UNIMARTCBCVS',
         'Destination' => 'SG',
+
+        // 請參考 example/Logistics/CrossBorder/GetMapResponse.php 範例開發
         'ServerReplyURL' => 'https://logistics-stage.ecpay.com.tw/MockMerchant/NoticsTestRtn',
     ];
     $action = 'https://logistics-stage.ecpay.com.tw/CrossBorder/Map';

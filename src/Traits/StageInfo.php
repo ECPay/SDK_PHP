@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Traits;
 
 trait StageInfo

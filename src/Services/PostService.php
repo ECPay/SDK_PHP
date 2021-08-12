@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Services;
 
 use Ecpay\Sdk\Exceptions\RtnException;
@@ -14,14 +15,14 @@ class PostService
      * @var RequestInterface
      */
     protected $request;
-    
+
     /**
      * Response
      *
      * @var ResponseInterface
      */
     protected $response;
-    
+
     /**
      * ServerPostService
      *
@@ -52,8 +53,6 @@ class PostService
     {
         $reqeust = $this->request->get($request);
         $source = $this->serverPostService->run($reqeust, $url);
-        $response = $this->response->get($source);
-
-        return $response;
+        return $this->response->get($source);
     }
 }

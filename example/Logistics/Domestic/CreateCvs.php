@@ -25,15 +25,15 @@ try {
         'SenderCellPhone' => '0911222333',
         'ReceiverName' => '王小美',
         'ReceiverCellPhone' => '0933222111',
-        
-        // 請參考 GetLogisticStatueResponse.php 範例開發
+
+        // 請參考 example/Logistics/Domestic/GetLogisticStatueResponse.php 範例開發
         'ServerReplyURL' => 'https://www.ecpay.com.tw/example/server-reply',
-        
-        // 請參考 Map.php 範例取得
+
+        // 請參考 example/Logistics/Domestic/GetMapResponse.php 範例取得
         'ReceiverStoreID' => '006598',
     ];
     $url = 'https://logistics-stage.ecpay.com.tw/Express/Create';
-    
+
     $response = $postService->post($input, $url);
     var_dump($response);
 } catch (RtnException $e) {

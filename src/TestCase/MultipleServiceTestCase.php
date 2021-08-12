@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\TestCase;
 
 use Ecpay\Sdk\Traits\StageInfo;
@@ -9,7 +10,7 @@ use Ecpay\Sdk\Services\CheckMacValueService;
 class MultipleServiceTestCase extends TestCase
 {
     use StageInfo;
-    
+
     /**
      * Factory
      *

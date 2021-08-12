@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Services;
 
 use Ecpay\Sdk\Interfaces\Services\HtmlInterface;
@@ -25,7 +26,7 @@ class AutoSubmitFormService
         $this->request = $request;
         $this->htmlService = $htmlService;
     }
-    
+
     /**
      * 產生自動送出表單 JS
      *
@@ -34,10 +35,9 @@ class AutoSubmitFormService
      */
     public function autoSubmitJs($formId)
     {
-        $js ='<script type="text/javascript">';
-        $js .='document.getElementById("' . $this->htmlService->escapeHtml($formId) . '").submit();';
-        $js .='</script>';
-
+        $js = '<script type="text/javascript">';
+        $js .= 'document.getElementById("' . $this->htmlService->escapeHtml($formId) . '").submit();';
+        $js .= '</script>';
         return $js;
     }
 
@@ -51,22 +51,15 @@ class AutoSubmitFormService
      * @param  string $submitText
      * @return string
      */
-    public function generate(
-        $input,
-        $action,
-        $target = '_self',
-        $id = 'auto-submit-form',
-        $submitText = 'auto-submit-button'
-    ) {
+    public function generate($input, $action, $target = '_self', $id = 'ecpay-form', $submitText = 'ecpay-button')
+    {
         $request = $this->request->toArray($input);
-
         $html = $this->htmlService->header();
         $html .= '<body>';
         $html .= $this->htmlService->form($request, $action, $target, $id, $submitText);
         $html .= $this->autoSubmitJs($id);
         $html .= '</body>';
         $html .= $this->htmlService->footer();
-
         return $html;
     }
 }

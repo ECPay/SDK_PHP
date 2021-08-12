@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Abstracts;
 
 use Ecpay\Sdk\Services\ArrayService;

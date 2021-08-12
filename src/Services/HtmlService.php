@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Services;
 
 use Ecpay\Sdk\Interfaces\Services\HtmlInterface;
@@ -18,7 +19,7 @@ class HtmlService implements HtmlInterface
         if (!empty($escaped)) {
             $escaped = htmlspecialchars($value, ENT_QUOTES, 'UTF-8', $doubleEncode);
         }
-        
+
         return $escaped;
     }
 
@@ -46,7 +47,6 @@ class HtmlService implements HtmlInterface
     {
         $formTarget = $this->escapeHtml($target);
         $formAction = $this->escapeHtml($action);
-
         $form = '<form id="' . $id . '" method="POST" target="' . $formTarget . '" action="' . $formAction . '">';
         foreach ($input as $name => $value) {
             $inputName = $this->escapeHtml($name);
@@ -54,7 +54,6 @@ class HtmlService implements HtmlInterface
             $form .= '<input type="hidden" name="' . $inputName . '" value="' . $inputValue . '">';
         }
         $form .= '</form>';
-
         return $form;
     }
 
@@ -70,7 +69,6 @@ class HtmlService implements HtmlInterface
         $header .= '<head>';
         $header .= '<meta charset="utf-8">';
         $header .= '</head>';
-
         return $header;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Abstracts;
 
 use Ecpay\Sdk\Services\AesService;
@@ -20,6 +21,7 @@ abstract class AbstractDecryptedResponse implements ResponseInterface
      *
      * @param AesService $aesService
      */
+
     public function __construct(AesService $aesService)
     {
         $this->aesService = $aesService;
@@ -37,8 +39,6 @@ abstract class AbstractDecryptedResponse implements ResponseInterface
     {
         $parsed = $this->toArray($source);
         $decrypted = $this->aesService->decryptData($parsed);
-        $sorted = ArrayService::naturalSort($decrypted);
-
-        return $sorted;
+        return ArrayService::naturalSort($decrypted);
     }
 }

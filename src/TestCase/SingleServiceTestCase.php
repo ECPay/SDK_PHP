@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\TestCase;
 
 use Ecpay\Sdk\Traits\StageInfo;
@@ -8,7 +9,7 @@ use Ecpay\Sdk\Factories\Factory;
 class SingleServiceTestCase extends TestCase
 {
     use StageInfo;
-    
+
     /**
      * Factory
      *

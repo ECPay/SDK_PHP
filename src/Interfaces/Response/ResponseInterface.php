@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Interfaces\Response;
 
 use Ecpay\Sdk\Exceptions\RtnException;

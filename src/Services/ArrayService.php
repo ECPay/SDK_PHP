@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Services;
 
 class ArrayService
@@ -11,13 +12,10 @@ class ArrayService
      */
     public static function naturalSort($source)
     {
-        uksort(
-            $source,
-            function ($first, $second) {
-                return strcasecmp($first, $second);
-            }
-        );
+        uksort($source, function ($first, $second) {
 
+                return strcasecmp($first, $second);
+        });
         return $source;
     }
 }

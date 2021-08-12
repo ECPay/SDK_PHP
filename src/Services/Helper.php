@@ -1,4 +1,5 @@
 <?php
+
 namespace Ecpay\Sdk\Services;
 
 class Helper
@@ -15,7 +16,7 @@ class Helper
         self::dump($content, $desc);
         exit;
     }
-    
+
     /**
      * Dump
      *
@@ -43,7 +44,6 @@ class Helper
         $isString = is_string($string);
         $isArray = is_array(json_decode($string, true));
         $isJsonError = (json_last_error() == JSON_ERROR_NONE);
-
         return $isString && $isArray && $isJsonError;
     }
 
