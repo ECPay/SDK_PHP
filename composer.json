@@ -3,11 +3,12 @@
     "description": "ECPay SDK",
     "type": "library",
     "require": {
-        "php": ">=5.3"
+        "php": "^5.6.20 || ^7.0 || ^8.0"
     },
     "license": "MIT",
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "^5.0 || ^6.0 || ^7.0 || ^8.0",
+        "fzaninotto/faker": "1.9.x-dev"
     },
     "autoload": {
         "psr-4": {

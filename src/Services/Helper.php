@@ -57,9 +57,9 @@ class Helper
     public static function printReadable($content, $desc = '')
     {
         if (!empty($desc)) {
-            echo $desc . PHP_EOL;
+            echo $desc . '<br>' . PHP_EOL;
         }
 
-        echo print_r($content) . PHP_EOL;
+        echo '<pre>' . print_r($content, true) . '</pre><br>' . PHP_EOL;
     }
 }

@@ -1,6 +1,7 @@
 # 綠界科技 SDK
 提供您整合綠界科技相關服務，支援服務如下。
 * [全方位金流](https://www.ecpay.com.tw/Business/payment_standard)
+* [物流服務-全方位物流](https://www.ecpay.com.tw/IntroTransport)
 * [物流服務-國內物流](https://www.ecpay.com.tw/IntroTransport)
 * [物流服務-跨境物流](https://www.ecpay.com.tw/IntroTransportCB)
 * [電子發票](https://www.ecpay.com.tw/Business/invoice)
@@ -13,7 +14,7 @@
 * [協助](#協助)
 
 # 環境需求
-- [PHP](https://www.php.net/) 5.6 以上
+- [PHP](https://www.php.net/): ^5.6.20 || ^7.0 || ^8.0
 
 # 安裝
 建議使用 [Composer](https://getcomposer.org/) 安裝

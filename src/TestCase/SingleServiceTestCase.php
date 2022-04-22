@@ -2,9 +2,11 @@
 
 namespace Ecpay\Sdk\TestCase;
 
+use Faker\Generator;
 use Ecpay\Sdk\Traits\StageInfo;
 use PHPUnit\Framework\TestCase;
 use Ecpay\Sdk\Factories\Factory;
+use Faker\Factory as FakerFactory;
 
 class SingleServiceTestCase extends TestCase
 {
@@ -16,6 +18,13 @@ class SingleServiceTestCase extends TestCase
      * @var Factory
      */
     protected $factory;
+
+    /**
+     * fzaninotto/faker
+     *
+     * @var Generator
+     */
+    protected $faker;
 
     /**
      * Service
@@ -57,5 +66,6 @@ class SingleServiceTestCase extends TestCase
         parent::setUp();
         $this->factory = new Factory($this->getFactoryOptions());
         $this->service = $this->getService();
+        $this->faker = FakerFactory::create();
     }
 }

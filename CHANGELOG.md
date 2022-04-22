@@ -1,5 +1,16 @@
 CHANGELOG
 =========
+## 1.2.0 - 2022-01-26
+-----
+
+### Fixed
+- Fix PHP 5.6 compibility.
+- Fix exmaple/Logistics/CrossBorder/Map.php using wrong service class.
+
+### Added
+- Add support for Ecpay `All in one logistics` API.
+- Add TransCode validation(TransException).
+- Add Unimart and Hilife freeze delivery return examples.
 
 ## 1.1.0 - 2021-07-26
 -----

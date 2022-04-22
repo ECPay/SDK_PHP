@@ -2,9 +2,11 @@
 
 namespace Ecpay\Sdk\TestCase;
 
+use Faker\Generator;
 use Ecpay\Sdk\Traits\StageInfo;
 use PHPUnit\Framework\TestCase;
 use Ecpay\Sdk\Factories\Factory;
+use Faker\Factory as FakerFactory;
 use Ecpay\Sdk\Services\CheckMacValueService;
 
 class MultipleServiceTestCase extends TestCase
@@ -19,6 +21,13 @@ class MultipleServiceTestCase extends TestCase
     protected $factory;
 
     /**
+     * fzaninotto/faker
+     *
+     * @var Generator
+     */
+    protected $faker;
+
+    /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
      */
@@ -26,6 +35,7 @@ class MultipleServiceTestCase extends TestCase
     {
         parent::setUp();
         $this->setFactory($this->getSha256CmvFactory());
+        $this->faker = FakerFactory::create();
     }
 
     /**

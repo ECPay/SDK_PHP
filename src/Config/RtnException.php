@@ -2,6 +2,7 @@
 
 return [
     102 => 'Generate CheckMacValue failed',
+    103 => 'Response is not JSON format',
     104 => 'Class with hash do not exist',
     105 => 'Get response failed',
     106 => 'CheckMacValue verify failed',
@@ -10,4 +11,5 @@ return [
     109 => 'AES decrypt failed',
     110 => 'AES encrypt failed',
     111 => 'JSON decrypt failed',
+
 ];

@@ -12,22 +12,29 @@ use Ecpay\Sdk\Services\HtmlService;
 use Ecpay\Sdk\Services\PostService;
 use Ecpay\Sdk\Response\JsonResponse;
 use Ecpay\Sdk\Exceptions\RtnException;
+use Ecpay\Sdk\Response\AesStrResponse;
 use Ecpay\Sdk\Response\AesJsonResponse;
 use Ecpay\Sdk\Response\EncodedStrResponse;
 use Ecpay\Sdk\Request\CheckMacValueRequest;
+use Ecpay\Sdk\Abstracts\AbstractAesResponse;
 use Ecpay\Sdk\Services\CheckMacValueService;
 use Ecpay\Sdk\Services\AutoSubmitFormService;
 use Ecpay\Sdk\Abstracts\AbstractVerifiedResponse;
-use Ecpay\Sdk\Abstracts\AbstractDecryptedResponse;
 use Ecpay\Sdk\Response\VerifiedEncodedStrResponse;
 
 class Factory
 {
+    /**
+     * Hash options
+     *
+     * @var array
+     */
     private $options = [
         'hashKey' => '',
         'hashIv' => '',
         'hashMethod' => CheckMacValueService::METHOD_SHA256,
     ];
+
     public function __construct(array $options = [])
     {
         $this->options = array_merge($this->options, $options);
@@ -47,8 +54,15 @@ class Factory
         switch (true) {
             case $this->isClassOrAlias($class, 'JsonCurlService'):
                 $instance = $this->create(CurlService::class);
-                $headers = ['Content-Type:application/json'];
+                $headers = [
+                    'Content-Type:application/json',
+                ];
                 $instance->setHeaders($headers);
+                break;
+            case $this->isClassOrAlias($class, 'AutoSubmitFormService'):
+                $request = $this->create(Request::class);
+                $htmlService = $this->create(HtmlService::class);
+                $instance = new AutoSubmitFormService($request, $htmlService);
                 break;
 
             // CheckMacValue 應用
@@ -94,12 +108,13 @@ class Factory
                 $htmlService = $this->create(HtmlService::class);
                 $instance = new AutoSubmitFormService($checkMacValueRequest, $htmlService);
                 break;
+
             // AES 應用
             case $this->isClassOrAlias($class, AesService::class):
                 $instance = new $class($this->options['hashKey'], $this->options['hashIv']);
                 break;
             case $this->isClassOrAlias($class, AesRequest::class):
-            case $this->isClassOrAlias($class, AbstractDecryptedResponse::class):
+            case $this->isClassOrAlias($class, AbstractAesResponse::class):
                 $aesService = $this->create(AesService::class);
                 $instance = new $class($aesService);
                 break;
@@ -109,11 +124,13 @@ class Factory
                 $response = $this->create(AesJsonResponse::class);
                 $instance = new PostService($aesRequest, $jsonCurlService, $response);
                 break;
-            case $this->isClassOrAlias($class, 'AutoSubmitFormWithAesService'):
-                $request = $this->create(Request::class);
-                $htmlService = $this->create(HtmlService::class);
-                $instance = new AutoSubmitFormService($request, $htmlService);
+            case $this->isClassOrAlias($class, 'PostWithAesStrResponseService'):
+                $aesRequest = $this->create(AesRequest::class);
+                $jsonCurlService = $this->create('JsonCurlService');
+                $response = $this->create(AesStrResponse::class);
+                $instance = new PostService($aesRequest, $jsonCurlService, $response);
                 break;
+
             default:
                 $instance = new $class();
         }

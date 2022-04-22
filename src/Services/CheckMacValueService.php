@@ -15,8 +15,8 @@ class CheckMacValueService
     /**
      * Hash 方式列舉
      */
-    public const METHOD_MD5 = 'md5';
-    public const METHOD_SHA256 = 'sha256';
+    const METHOD_MD5 = 'md5';
+    const METHOD_SHA256 = 'sha256';
 
     /**
      * Hash 方式
