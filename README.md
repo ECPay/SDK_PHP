@@ -26,4 +26,4 @@ composer require ecpay/sdk
 
 # 協助
 - [綠界技術服務工程師信箱](mailto:techsupport@ecpay.com.tw)
-- [舊版](https://github.com/ECPay/ECPayAIO_PHP) (停止維護)
+- [舊版](https://github.com/ECPay/ECPayAIO_PHP)
