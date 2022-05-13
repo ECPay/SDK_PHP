@@ -28,3 +28,4 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2BInvoice/RejectConfirm';
 
 $response = $postService->post($input, $url);
 var_dump($response);
+
