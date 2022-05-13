@@ -26,3 +26,4 @@ $url = 'https://logistics-stage.ecpay.com.tw/CrossBorder/QueryLogisticsTradeInfo
 
 $response = $postService->post($input, $url);
 var_dump($response);
+
