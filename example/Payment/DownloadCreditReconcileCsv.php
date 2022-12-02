@@ -19,3 +19,4 @@ $input = [
 $action = 'https://payment-stage.ecpay.com.tw/CreditDetail/FundingReconDetail';
 
 echo $autoSubmitFormService->generate($input, $action);
+ 

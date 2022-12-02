@@ -19,3 +19,4 @@ $url = 'https://payment-stage.ecpay.com.tw/Cashier/QueryCreditCardPeriodInfo';
 
 $response = $postService->post($input, $url);
 var_dump($response);
+ 

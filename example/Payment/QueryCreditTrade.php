@@ -20,3 +20,4 @@ $url = 'https://payment-stage.ecPay.com.tw/CreditDetail/QueryTrade/V2';
 
 $response = $postService->post($parameters, $url);
 var_dump($response);
+ 
