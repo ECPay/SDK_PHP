@@ -33,3 +33,4 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2BInvoice/MaintainMerchantCustomerD
 
 $response = $postService->post($input, $url);
 var_dump($response);
+ 

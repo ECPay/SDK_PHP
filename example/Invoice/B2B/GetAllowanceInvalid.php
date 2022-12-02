@@ -27,3 +27,4 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2BInvoice/GetAllowanceInvalid';
 
 $response = $postService->post($input, $url);
 var_dump($response);
+ 
