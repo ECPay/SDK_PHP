@@ -25,3 +25,4 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2CInvoice/CancelDelayIssue';
 
 $response = $postService->post($input, $url);
 var_dump($response);
+ 

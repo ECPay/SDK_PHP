@@ -47,3 +47,4 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2CInvoice/AllowanceByCollegiate';
 
 $response = $postService->post($input, $url);
 var_dump($response);
+ 

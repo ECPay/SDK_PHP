@@ -9,3 +9,4 @@ $factory = new Factory();
 $arrayResponse = $factory->create(ArrayResponse::class);
 
 var_dump($arrayResponse->get($_POST));
+ 
