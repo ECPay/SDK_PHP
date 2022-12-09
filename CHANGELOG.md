@@ -1,5 +1,11 @@
 CHANGELOG
 =========
+## 1.2.2210310 - 2022-10-31
+-----
+
+### Fixed
+- Fix CheckMacValue verify failed when ItemName contains plus(+) sign.
+
 ## 1.2.0 - 2022-01-26
 -----
 
