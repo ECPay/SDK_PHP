@@ -14,7 +14,7 @@ class VerifiedEncodedStrResponse extends AbstractVerifiedResponse
      */
     public function toArray($response)
     {
-        parse_str($response, $parsed);
+        parse_str(str_replace('+', '%2B', $response), $parsed);
 
         return $parsed;
     }
