@@ -29,4 +29,3 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2BInvoice/GetIssue';
 
 $response = $postService->post($input, $url);
 var_dump($response);
- 

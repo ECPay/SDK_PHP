@@ -20,4 +20,3 @@ $input = [
 $action = 'https://vendor-stage.ecpay.com.tw/PaymentMedia/TradeNoAio';
 
 echo $autoSubmitFormService->generate($input, $action);
- 

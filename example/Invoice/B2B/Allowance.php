@@ -45,4 +45,3 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2BInvoice/Allowance';
 
 $response = $postService->post($input, $url);
 var_dump($response);
- 

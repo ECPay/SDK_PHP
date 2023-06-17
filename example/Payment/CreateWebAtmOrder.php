@@ -26,4 +26,3 @@ $input = [
 $action = 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5';
 
 echo $autoSubmitFormService->generate($input, $action);
- 

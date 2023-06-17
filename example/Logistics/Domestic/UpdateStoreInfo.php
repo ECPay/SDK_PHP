@@ -23,4 +23,3 @@ $url = 'https://logistics-stage.ecpay.com.tw/Express/UpdateStoreInfo';
 
 $response = $postService->post($input, $url);
 var_dump($response);
-

@@ -28,4 +28,3 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2CInvoice/GetInvalid';
 
 $response = $postService->post($input, $url);
 var_dump($response);
- 

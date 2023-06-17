@@ -26,4 +26,3 @@ $url = 'https://einvoice-stage.ecpay.com.tw/B2CInvoice/CheckLoveCode';
 
 $response = $postService->post($input, $url);
 var_dump($response);
- 
