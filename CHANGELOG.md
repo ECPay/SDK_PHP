@@ -1,5 +1,22 @@
 CHANGELOG
 =========
+## 1.2.2403070 - 2024-03-07
+-----
+### Added
+- Add Ecpg binding card examples.
+## 1.2.2301023 - 2023-10-23
+-----
+### Added
+- Add BNPL payment example
+- Add TWQR payment example
+## 1.2.2308100 - 2023-08-21
+-----
+### Added
+- Add Ecpg payment example
+## 1.2.2308010 - 2023-08-01
+-----
+### Added
+- Add an annotation for $_POST parameter in GetCheckoutResponse.php
 ## 1.2.2210310 - 2022-10-31
 -----
 
@@ -43,7 +60,7 @@ CHANGELOG
  - Added support for Ecpay `domestic logistics` API
  - Added `MD5` CheckMacValue
  - Added `curl POST with CheckMacValue and parse string reponse without CheckMacValue`
- 
+
 
 ## 1.0.2011250 - 2020-12-24
 -----
