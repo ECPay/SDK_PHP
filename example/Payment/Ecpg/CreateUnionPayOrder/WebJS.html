@@ -72,7 +72,7 @@
     </body>
 </html>
 <!-- 綠界科技 ECPay SDK 需引用 JS 區塊 -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/node-forge@0.7.0/dist/forge.min.js"></script>
 <script src="https://ecpg.ecpay.com.tw/Scripts/sdk-1.0.0.js?t=20210121100116"></script>
 
@@ -81,10 +81,10 @@
     var envi = getEnvi(environment);
     var _token = ''; // 請設定你取到的廠商驗證 token
     var _payToken = ''; // 選擇付款方式並送出付款資訊的 PayToken，初始留白
-    var url = 'https://' + window.location.host; 
+    var url = 'https://' + window.location.host;
 
     // 模擬流程:
-    // (1)產生廠商驗證 token 並渲染 UI 
+    // (1)產生廠商驗證 token 並渲染 UI
     // (2)選擇及填寫付款資訊並送出取得 PayToken
     // (3)建立交易
     // (4)接收綠界回傳付款結果 response
@@ -92,7 +92,7 @@
         getInitToken()
     })
 
-    // (1)產生廠商驗證 token 並渲染 UI 
+    // (1)產生廠商驗證 token 並渲染 UI
     function getInitToken() {
         $.get(url + '/example/Payment/Ecpg/CreateUnionPayOrder/GetToken.php', function(data, status){
             let result = JSON.parse(data);
@@ -116,7 +116,7 @@
         })
     }
 
-    // 切換 SDK 語系	
+    // 切換 SDK 語系
     $('#language').on('change', function () {
         try {
             if (ECPay !== undefined && _token !== '') {
@@ -144,7 +144,7 @@
                         errHandle(errMsg);
                         return
                     }
-                    
+
                     _payToken = paymentInfo.PayToken
                     $("#payToken").val(_payToken);
                 });
@@ -158,7 +158,7 @@
     });
 
     // (3)建立交易
-    $('#btnPay').on('click', function () { 
+    $('#btnPay').on('click', function () {
         $.post(url + '/example/Payment/Ecpg/CreateOrder.php', { PayToken: $("#payToken").val(), MerchantTradeNo: $("#merchantTradeNo").val() }, function(response) {
             $('#ecpayResponse').text(JSON.stringify(response, null, 3))
         }, 'json');

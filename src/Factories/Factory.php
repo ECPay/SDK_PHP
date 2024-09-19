@@ -14,6 +14,7 @@ use Ecpay\Sdk\Response\JsonResponse;
 use Ecpay\Sdk\Exceptions\RtnException;
 use Ecpay\Sdk\Response\AesStrResponse;
 use Ecpay\Sdk\Response\AesJsonResponse;
+use Ecpay\Sdk\Services\ManualFormService;
 use Ecpay\Sdk\Response\EncodedStrResponse;
 use Ecpay\Sdk\Request\CheckMacValueRequest;
 use Ecpay\Sdk\Abstracts\AbstractAesResponse;
@@ -107,6 +108,11 @@ class Factory
                 $checkMacValueRequest = $this->create(CheckMacValueRequest::class);
                 $htmlService = $this->create(HtmlService::class);
                 $instance = new AutoSubmitFormService($checkMacValueRequest, $htmlService);
+                break;
+            case $this->isClassOrAlias($class, 'FormWithCmvService'):
+                $checkMacValueRequest = $this->create(CheckMacValueRequest::class);
+                $htmlService = $this->create(HtmlService::class);
+                $instance = new ManualFormService($checkMacValueRequest, $htmlService);
                 break;
 
             // AES 應用
