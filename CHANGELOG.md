@@ -1,5 +1,6 @@
 CHANGELOG
 =========
+<<<<<<< HEAD
 ## 1.3.2408190 - 2024-08-19
 -----
 ### Added
@@ -9,6 +10,8 @@ CHANGELOG
 - Updated jQuery from version 3.5.1 to 3.7.1.
 - Enabled the `curl` option `CURLOPT_FOLLOWLOCATION` in the `run` function of the `CurlService`.
 
+=======
+>>>>>>> 9c8319de85a1cb0f52d124e7bc83bd3c6d9148d7
 ## 1.2.2403070 - 2024-03-07
 -----
 ### Added
