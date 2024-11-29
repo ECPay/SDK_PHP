@@ -5,17 +5,17 @@ use Ecpay\Sdk\Factories\Factory;
 require __DIR__ . '/../../../vendor/autoload.php';
 
 $factory = new Factory([
-    'hashKey' => '5294y06JbISpM5x9',
-    'hashIv' => 'v77hoKGq4kWxNNIS',
+    'hashKey' => 'pwFHCqoQZGmho4w6',
+    'hashIv'  => 'EkRm7iFT261dpevs',
 ]);
 $postService = $factory->create('PostWithCmvEncodedStrResponseService');
 
 $input = [
-    'MerchantID' => '2000132',
+    'MerchantID'      => '3002607',
     'MerchantTradeNo' => '5fa271cc74e51',
-    'TradeNo' => '2011041718071855',
-    'Action' => 'C',
-    'TotalAmount' => 8685,
+    'TradeNo'         => '2011041718071855',
+    'Action'          => 'C',
+    'TotalAmount'     => 8685,
 ];
 $url = 'https://payment-stage.ecpay.com.tw/CreditDetail/DoAction';
 

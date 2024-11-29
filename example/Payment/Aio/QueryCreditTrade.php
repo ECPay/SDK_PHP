@@ -5,16 +5,16 @@ use Ecpay\Sdk\Factories\Factory;
 require __DIR__ . '/../../../vendor/autoload.php';
 
 $factory = new Factory([
-    'hashKey' => '5294y06JbISpM5x9',
-    'hashIv' => 'v77hoKGq4kWxNNIS',
+    'hashKey' => 'pwFHCqoQZGmho4w6',
+    'hashIv'  => 'EkRm7iFT261dpevs',
 ]);
 $postService = $factory->create('PostWithCmvJsonResponseService');
 
 $parameters = [
-    'MerchantID' => '2000132',
-    'CreditRefundId' => 11304112,
-    'CreditAmount' => 8685,
-    'CreditCheckCode' => 91845555,
+    'MerchantID'      => '3002607',
+    'CreditRefundId'  => 13475885,
+    'CreditAmount'    => 100,
+    'CreditCheckCode' => 62861749,
 ];
 $url = 'https://payment-stage.ecPay.com.tw/CreditDetail/QueryTrade/V2';
 

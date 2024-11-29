@@ -6,22 +6,22 @@ use Ecpay\Sdk\Services\UrlService;
 require __DIR__ . '/../../../vendor/autoload.php';
 
 $factory = new Factory([
-    'hashKey' => '5294y06JbISpM5x9',
-    'hashIv' => 'v77hoKGq4kWxNNIS',
+    'hashKey' => 'pwFHCqoQZGmho4w6',
+    'hashIv'  => 'EkRm7iFT261dpevs',
 ]);
 $autoSubmitFormService = $factory->create('AutoSubmitFormWithCmvService');
 
 $input = [
-    'MerchantID' => '2000132',
-    'MerchantTradeNo' => 'Test' . time(),
+    'MerchantID'        => '3002607',
+    'MerchantTradeNo'   => 'Test' . time(),
     'MerchantTradeDate' => date('Y/m/d H:i:s'),
-    'PaymentType' => 'aio',
-    'TotalAmount' => 100,
-    'TradeDesc' => UrlService::ecpayUrlEncode('交易描述範例'),
-    'ItemName' => '範例商品一批 100 TWD x 1',
-    'ReturnURL' => 'https://www.ecpay.com.tw/example/receive',
-    'ChoosePayment' => 'WebATM',
-    'EncryptType' => 1,
+    'PaymentType'       => 'aio',
+    'TotalAmount'       => 100,
+    'TradeDesc'         => UrlService::ecpayUrlEncode('交易描述範例'),
+    'ItemName'          => '範例商品一批 100 TWD x 1',
+    'ReturnURL'         => 'https://www.ecpay.com.tw/example/receive',
+    'ChoosePayment'     => 'WebATM',
+    'EncryptType'       => 1,
 ];
 $action = 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5';
 

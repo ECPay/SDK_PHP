@@ -1,5 +1,14 @@
 CHANGELOG
 =========
+## 1.3.2411270 - 2024-11-27
+-----
+### Added
+- Add Logistic Status Code Files.
+### Changed
+- Change AIO test integration account.
+### Deprecated
+- Remove Sample Code CreateOrderIssueInvoice.php
+
 ## 1.3.2411050 - 2024-11-05
 -----
 ### Added

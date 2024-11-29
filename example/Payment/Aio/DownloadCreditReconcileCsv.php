@@ -5,16 +5,16 @@ use Ecpay\Sdk\Factories\Factory;
 require __DIR__ . '/../../../vendor/autoload.php';
 
 $factory = new Factory([
-    'hashKey' => '5294y06JbISpM5x9',
-    'hashIv' => 'v77hoKGq4kWxNNIS',
+    'hashKey' => 'pwFHCqoQZGmho4w6',
+    'hashIv'  => 'EkRm7iFT261dpevs',
 ]);
 $autoSubmitFormService = $factory->create('AutoSubmitFormWithCmvService');
 
 $input = [
-    'MerchantID' => '2000132',
+    'MerchantID'  => '3002607',
     'PayDateType' => 'close',
-    'StartDate' => '2015-02-12',
-    'EndDate' => '2015-02-12',
+    'StartDate'   => '2015-02-12',
+    'EndDate'     => '2015-02-12',
 ];
 $action = 'https://payment-stage.ecpay.com.tw/CreditDetail/FundingReconDetail';
 
