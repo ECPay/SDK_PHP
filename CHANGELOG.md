@@ -1,5 +1,13 @@
 CHANGELOG
 =========
+## 1.3.2506240 - 2025-06-24
+-----
+### Added
+- Add the `CreditCardPeriodAction` and `CreateWeiXinOrder` examples under Payment > AIO.
+
+### Fixed
+- Fix the decoding format in the examples under Logistics > Domestic: `CreateCvs.php`, `CreateHome.php`, and `CreateUnimartFreeze.php`.
+
 ## 1.3.2411270 - 2024-11-27
 -----
 ### Added

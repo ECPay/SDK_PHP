@@ -9,7 +9,7 @@ $factory = new Factory([
     'hashIv' => 'v77hoKGq4kWxNNIS',
     'hashMethod' => 'md5',
 ]);
-$postService = $factory->create('PostWithCmvEncodedStrResponseService');
+$postService = $factory->create('PostWithCmvStrResponseService');
 
 $input = [
     'MerchantID' => '2000132',
